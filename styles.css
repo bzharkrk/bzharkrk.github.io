@@ -1,6 +1,31 @@
 body {
-    background: black; 
-                color:green;
-                font-family: "Courier New", monospace; 
-                padding: 20px;
-  }
+    background: black;
+    color: green;
+    font-family: "Courier New", monospace;
+    padding: 20px;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    text-align: center;
+}
+
+.custom-img {
+    width: 300px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
