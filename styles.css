@@ -1,31 +1,26 @@
-body {
-    background: black;
-    color: green;
-    font-family: "Courier New", monospace;
-    padding: 20px;
-}
+:root {
+    --primary-yellow: #fcde67; /* Semikolon am Ende */
+    --primary-blue: #5bccf6;   /* Semikolon am Ende */
+    --text-color: #030e12;    /* Hashtag für Farbcode und Semikolon */
+    --background-color: #c7c4c4; /* Semikolon am Ende */
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    
+  }
 
-.cursor {
-    animation: blink 1s infinite;
-}
+  header {
+    background-color: (var(--primary-blue));
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
-
-h1 {
-    text-align: center;
-}
-
-ul {
-    text-align: center;
-}
-
-.custom-img {
-    width: 300px;
-    height: 200px;
-    display: block;
-    margin: 0 auto;
-}
+ 

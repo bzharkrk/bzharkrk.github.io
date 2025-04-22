@@ -1,23 +1,48 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Dein Name</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <title>Bzharkrk</title>
-    </head>
-    <body>
-          <!-- Terminal-Look mit blinkendem Cursor -->
-          <p>user@website:~$ <span class="cursor">█</span></p> 
-          <h1>Willkommen auf meiner Website</h1>
+  <main>
+    <section id="intro">
+      <h2>Über mich</h2>
+      <p>Kurze Bio …</p>
+    </section>
 
-        <h3> Über mich: </h3>
-        <ul>
-            <li>Learning to code!</li>
-            <li>Gaming</li>
-            <li>Music</li>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
         </ul>
-        <img src="image/bzharkrkimg.jpg" alt="Bzharkrk" class="custom-img">
-    </body>
+    </section>
+
+    <section id="projects">
+      <h2>Projekte</h2>
+      <div class="slideshow">
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dein Name – <a href="contact.html">Kontakt</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
