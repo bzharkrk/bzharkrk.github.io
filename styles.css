@@ -39,7 +39,7 @@
     
   }
 
-  #intron h2 {
+  #intro h2 {
     text-align: center;
     margin-bottom: 25px;
     color: var(--primary-blue);
@@ -49,4 +49,8 @@
   #intro p {
     line-height: 1.6;
     margin-bottom: 15px;
+  }
+
+  nav a i {
+    margin-right: 0.5rem;
   }
