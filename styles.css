@@ -15,12 +15,31 @@
   }
 
   header {
-    background-color: (var(--primary-blue));
-    color: rgb(2, 3, 59);
+    background-color: var(--primary-blue);
+    color: rgb(255, 255, 255);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
- 
+  #intro {
+    padding: 40px 20px;
+    margin: 30px auto;
+    max-width: 800px;
+    background-color: #e4e2e270;
+    border-radius: 8px;
+    background-image:C:\Users\Admin\Desktop\Programmieren\GitHub\bzharkrk.github.io\image
+  }
+
+  #intron h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--primary-blue);
+
+  }
+
+  #intro p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
