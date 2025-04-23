@@ -17,22 +17,26 @@
   </header>
 
   <main>
-    <section id="contact-form">
-      <h2>Schreib mir</h2>
-      <form action="#" method="POST">
+    <section id = "contact-form">
+      <h2>Kontaktformular</h2>
+      <p>Hinterlasse mir eine Nachricht:</p>
+
+      <form id = "contactForm">
         <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
+          <label for = "nameEingabe">Name:</label>
+          <input type = "text" id = "nameEingabe" name = "nameEingabe" required>
+
         <div>
-          <label for="email">E‑Mail</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-          <label for="message">Nachricht</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit">Absenden</button>
+          <label for = "emailEingabe">E-Mail:</label>
+          <input type = "email" id = "emailEingabe" name = "emailEingabe" required>
+        
+          <div>
+            <label for = "nachrichtEingabe">Nachricht:</label>
+            <textarea id = "nachrichtEingabe" name = "nachrichtEingabe" rows = "5" required></textarea>
+          </div>
+          <input type ="hidden" id="empfaengerNameInput" name="recipientsName" value="Alan">
+          <button type = "submit" id = "sendeButton">Nachricht senden</button>
+        <div id="statusMeldung" style="margin-top: 10px;"></div>	
       </form>
     </section>
   </main>
@@ -40,5 +44,7 @@
   <footer>
     <p>&copy; 2025 Dein Name</p>
   </footer>
+  
+  <script src="script.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
     --primary-yellow: #fcde67; /* Semikolon am Ende */
     --primary-blue: #5bccf6;   /* Semikolon am Ende */
     --text-color: #030e12;    /* Hashtag für Farbcode und Semikolon */
-    --background-color: #c7c4c4; /* Semikolon am Ende */
+    --background-color: #f0ecec; /* Semikolon am Ende */
   }
   
   body {
@@ -16,7 +16,7 @@
 
   header {
     background-color: (var(--primary-blue));
-    color: white;
+    color: rgb(2, 3, 59);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
