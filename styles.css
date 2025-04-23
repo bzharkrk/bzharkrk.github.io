@@ -11,7 +11,7 @@
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    background-image:url('image/hintergrundbild.png');
+    background-image:url('image/hintergrundbild-qhd.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
   }
 
   header {
-    background-color: var(--primary-blue);
+    background-color: rgba(91, 204, 246, 0.66);
     color: rgb(255, 255, 255);
     padding: 1rem 2rem;
     display: flex;
@@ -35,6 +35,7 @@
     max-width: 800px;
     background-color: #e4e2e270;
     border-radius: 8px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     
   }
 
