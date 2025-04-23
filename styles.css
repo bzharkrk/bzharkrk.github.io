@@ -11,6 +11,12 @@
     color: var(--text-color);
     margin: 0;
     padding: 0;
+    background-image:url('image/hintergrundbild.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
     
   }
 
@@ -29,7 +35,7 @@
     max-width: 800px;
     background-color: #e4e2e270;
     border-radius: 8px;
-    background-image:C:\Users\Admin\Desktop\Programmieren\GitHub\bzharkrk.github.io\image
+    
   }
 
   #intron h2 {
