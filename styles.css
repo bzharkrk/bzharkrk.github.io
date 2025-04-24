@@ -3,121 +3,236 @@
   --primary-blue: #5bccf6;
   --text-color: #030e12;
   --background-color: #f0ecec; /* Wird aktuell vom Body-BG-Bild überdeckt */
-  --light-overlay-bg: rgba(228, 226, 226, 0.7); /* Entspricht #e4e2e270 */
-  --dark-text-contrast: #030e12; /* Explizit für Lesbarkeit auf hellen Overlays */
-  --light-text-contrast: white; /* Explizit für Lesbarkeit auf dunklen Overlays/Headern */
+  --light-overlay-bg: rgba(228, 226, 226, 0.75); /* Etwas weniger transparent als #e4e2e270 */
+  --dark-text-contrast: #030e12;
+  --light-text-contrast: white;
+  --logo-set-width: 420px;
 }
 
 body {
   font-family: sans-serif;
-  /* background-color: var(--background-color); */ /* Wird von Bild überdeckt */
-  color: var(--text-color); /* Standard-Textfarbe (dunkel) */
+  color: var(--text-color); /* Standard-Textfarbe */
   margin: 0;
   padding: 0;
-  background-image: url('image/hintergrundbild-qhd.png'); /* Pfad prüfen! */
+  background-image: url('image/hintergrundbild-qhd.png'); /* Prüfe Pfad/Dateinamen! */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  background-color: rgba(91, 204, 246, 0.7); /* Transparenz angepasst */
-  color: var(--light-text-contrast); /* Weiß für Lesbarkeit */
+  background-color: rgba(91, 204, 246, 0.75); /* Leicht angepasst */
+  color: var(--light-text-contrast);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: sticky; */ /* Optional */
-  /* top: 0; */
-  /* width: 100%; */
-  /* z-index: 10; */
+  /* position: sticky; top: 0; width: 100%; z-index: 10; */ /* Bei Bedarf */
+}
+
+main {
+  flex-grow:  1; /* Nimmt den verfügbaren Platz ein */
 }
 
 /* --- Navigation Styling --- */
 nav ul {
-  list-style: none; /* Entfernt Aufzählungspunkte */
-  padding-left: 0; /* Entfernt Standard-Einzug */
-  margin: 0; /* Entfernt Standard-Margin */
-  display: flex; /* Ordnet Listenelemente nebeneinander an */
-  gap: 1.5rem; /* Abstand zwischen den Links */
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
 }
 
 nav a {
-  color: var(--light-text-contrast); /* Gleiche Farbe wie Header-Text */
-  text-decoration: none; /* Entfernt Unterstreichung */
+  color: var(--light-text-contrast);
+  text-decoration: none;
   font-weight: bold;
-  padding: 0.5rem 0; /* Etwas Klickfläche oben/unten */
+  padding: 0.5rem 0;
+  display: inline-flex; /* Hilft bei Ausrichtung Icon/Text */
+  align-items: center; /* Vertikal zentrieren */
+  transition: color 0.3s ease; /* Dynamik: Weicher Farbwechsel */
 }
 
 nav a i {
-  margin-right: 0.5em; /* Abstand Icon zu Text, skaliert mit Schrift */
-  font-size: 1em; /* Icon-Größe = Textgröße (anpassen bei Bedarf) */
-  /* vertical-align: middle; */ /* Meist nicht nötig bei Flexbox im Header */
+  margin-right: 0.5em;
+  font-size: 1em; /* Größe = Textgröße (anpassen bei Bedarf) */
+  /* vertical-align wird durch align-items im Parent (nav a) gesteuert */
 }
 
 nav a:hover {
-  color: var(--primary-yellow); /* Text UND Icon werden gelb */
-  /* --- Optional: Transition für weichen Übergang --- */
-  /* transition: color 0.3s ease; */
+  color: var(--primary-yellow);
 }
 
-
-/* --- Intro Section --- */
-#intro {
-  padding: 40px 20px;
-  margin: 30px auto;
-  max-width: 800px;
-  background-color: var(--light-overlay-bg); /* Heller halbtransparenter Hintergrund */
+/* --- Allgemeine Sektions-Styles --- */
+#intro, #skills, #projects, #contact-form-section {
+  padding: 40px 20px; /* Standard-Innenabstand (bei #skills überschrieben) */
+  margin: 30px auto; /* Standard-Außenabstand & Zentrierung */
+  max-width: 800px; /* Standard-Breitenbegrenzung */
+  background-color: var(--light-overlay-bg); /* Heller Overlay für Lesbarkeit */
   border-radius: 8px;
-  /* Textschatten evtl. anpassen/entfernen, wenn Text dunkel genug ist */
-  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); */
+  color: var(--dark-text-contrast); /* Standard-Textfarbe in diesen Boxen */
 }
 
-#intro h2 { /* KORREKTUR: Selektor */
+/* --- Intro Section Specifc --- */
+#intro h2 {
   text-align: center;
   margin-bottom: 25px;
-  /* KORREKTUR: Dunkle Farbe für Kontrast auf hellem Overlay */
-  color: var(--dark-text-contrast);
+  color: var(--dark-text-contrast); /* Sicherstellen, dass Kontrast passt */
 }
 
 #intro p {
   line-height: 1.6;
   margin-bottom: 15px;
-  /* KORREKTUR: Dunkle Farbe für Kontrast auf hellem Overlay */
+  color: var(--dark-text-contrast); /* Sicherstellen, dass Kontrast passt */
+}
+/* Span für Namen (optional) */
+#intro span {
+  font-weight: bold;
+  /* color: var(--primary-blue); */ /* Optional hervorheben */
+}
+
+
+/* --- Skills Slideshow Section --- */
+#skills {
+  padding: 40px 0; /* Kein seitliches Padding für Kante-zu-Kante-Scroll */
+  margin: 30px auto; /* Zentriert die Sektion selbst */
+  max-width: 800px; /* Breite der Sektion, in der gescrollt wird */
+  background-color: var(--light-overlay-bg); /* Heller Overlay-Hintergrund */
+  border-radius: 8px;
+  color: var(--dark-text-contrast);
+  overflow: hidden; /* WICHTIG: Schneidet den Track ab */
+}
+
+#skills h2 {
+  text-align: center;
+  margin-bottom: 25px;
   color: var(--dark-text-contrast);
 }
 
-/* --- Styling für andere Sektionen (Platzhalter) --- */
-#skills, #projects, #contact-form {
-    padding: 40px 20px;
-    margin: 30px auto;
-    max-width: 800px;
-    background-color: var(--light-overlay-bg); /* Gleicher Stil wie Intro? */
-    border-radius: 8px;
-    color: var(--dark-text-contrast); /* Standardtextfarbe für diese Sektionen */
+/* Das Laufband - Ansatz mit white-space */
+.skills-slideshow-track {
+  white-space: nowrap; /* Hält Logos in einer Zeile */
+  /* Passe die Dauer (18s) an, wenn die Geschwindigkeit nicht passt */
+  animation: scroll_animation_nowrap 10s linear infinite;
+  width: calc(var(--logo-set-width) * 2); /* Doppelte Breite für Endlosschleife */
 }
 
-#skills h2, #projects h2, #contact-form h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--dark-text-contrast); /* Oder primary-blue? Kontrast prüfen! */
+/* Styling der Logos */
+.skills-slideshow-track img {
+  display: inline-block; /* Wichtig für nowrap */
+  height: 50px; /* Deine bestätigte Höhe */
+  width: 50px;  /* Deine bestätigte Breite */
+  margin: 0 25px; /* Dein bestätigter Margin */
+  vertical-align: middle; /* Vertikal ausrichten */
 }
+
+/* Keyframe-Animation (nutzt die Variable) */
+@keyframes scroll_animation_nowrap {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Verschiebt um exakt die Breite EINER Sequenz */
+    transform: translateX(calc(-1 * var(--logo-set-width))); /* Sollte -400px sein */
+  }
+}
+
+/* Optional: Pause bei Hover */
+.skills-slideshow-track:hover {
+  animation-play-state: paused;
+}
+
+/* --- Ende Skills Slideshow Section --- */
+
+/* --- Projects Section --- */
+#projects h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--dark-text-contrast);
+}
+.slideshow {
+  /* Basis-Styling für den Platzhalter */
+  min-height: 150px;
+  background-color: rgba(0,0,0,0.1); /* Leichter Platzhalter-Hintergrund */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+/* --- Contact Form Section --- */
+#contact-form-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--dark-text-contrast);
+}
+/* (Weitere Styles für Formular folgen) */
+#contactForm label {
+  display: block; /* Labels über den Feldern */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+  width: 100%; /* Volle Breite innerhalb des Containers */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Padding etc. in Breite einrechnen */
+  background-color: #fff; /* Heller Hintergrund für Felder */
+  color: var(--text-color);
+}
+#contactForm textarea {
+  resize: vertical; /* Nur vertikales Ändern der Größe erlauben */
+}
+#contactForm button {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Dynamik: Hover-Effekt */
+}
+#contactForm button:hover {
+  background-color: #48addf; /* Etwas dunkleres Blau bei Hover */
+}
+#contactForm button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+#statusMeldung {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
 
 /* --- Footer Styling --- */
 footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    background-color: rgba(0, 0, 0, 0.7); /* Dunkler halbtransparenter Hintergrund */
-    color: #ccc; /* Helles Grau für Text */
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: rgba(0, 0, 0, 0.75); /* Etwas dunkler */
+  color: #ccc;
 }
 footer a {
-    color: var(--primary-yellow); /* Gelb für Links im Footer */
-    text-decoration: none;
+  color: var(--primary-yellow);
+  text-decoration: none;
+  transition: color 0.3s ease; /* Dynamik: Hover-Effekt */
 }
 footer a:hover {
-    text-decoration: underline;
+  color: white;
+  /* text-decoration: underline; */ /* Optional */
 }
-
+footer i { /* Icon im Footer Link */
+  margin-right: 0.3em;
+  font-size: 1em;
+}

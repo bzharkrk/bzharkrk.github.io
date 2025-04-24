@@ -19,19 +19,27 @@
   </header>
 
   <main>
-    <section id="contact-form"> <h2>Kontaktformular</h2>
+    <section id="contact-form-section">
+      <h2>Kontaktformular</h2>
       <p>Hinterlasse mir eine Nachricht:</p>
 
-      <form id="contactForm"> <div>
+      <form id="contactForm">
+        <div>
           <label for="nameEingabe">Name:</label>
           <input type="text" id="nameEingabe" name="nameEingabe" required>
-        </div> <div>
+        </div>
+
+        <div>
           <label for="emailEingabe">E-Mail:</label>
           <input type="email" id="emailEingabe" name="emailEingabe" required>
-        </div> <div>
+        </div>
+
+        <div>
           <label for="nachrichtEingabe">Nachricht:</label>
           <textarea id="nachrichtEingabe" name="nachrichtEingabe" rows="5" required></textarea>
-        </div> <input type="hidden" id="empfaengerNameInput" name="recipientsName" value="Alan">
+        </div>
+
+        <input type="hidden" id="empfaengerNameInput" name="recipientsName" value="Alan">
         <button type="submit" id="sendeButton">Nachricht senden</button>
         <div id="statusMeldung" style="margin-top: 10px;"></div>
       </form>
@@ -39,8 +47,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Alan Kerkuki</p>
-  </footer>
+    <p>&copy; <strong>2025 Alan Kerkuki</strong></p> </footer>
 
   <script src="script.js"></script>
 </body>
