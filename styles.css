@@ -1,61 +1,123 @@
 :root {
-    --primary-yellow: #fcde67; /* Semikolon am Ende */
-    --primary-blue: #5bccf6;   /* Semikolon am Ende */
-    --text-color: #030e12;    /* Hashtag für Farbcode und Semikolon */
-    --background-color: #f0ecec; /* Semikolon am Ende */
-  }
-  
-  body {
-    font-family: sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    background-image:url('image/hintergrundbild-qhd.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-    
-  }
+  --primary-yellow: #fcde67;
+  --primary-blue: #5bccf6;
+  --text-color: #030e12;
+  --background-color: #f0ecec; /* Wird aktuell vom Body-BG-Bild überdeckt */
+  --light-overlay-bg: rgba(228, 226, 226, 0.7); /* Entspricht #e4e2e270 */
+  --dark-text-contrast: #030e12; /* Explizit für Lesbarkeit auf hellen Overlays */
+  --light-text-contrast: white; /* Explizit für Lesbarkeit auf dunklen Overlays/Headern */
+}
 
-  header {
-    background-color: rgba(91, 204, 246, 0.66);
-    color: rgb(255, 255, 255);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+body {
+  font-family: sans-serif;
+  /* background-color: var(--background-color); */ /* Wird von Bild überdeckt */
+  color: var(--text-color); /* Standard-Textfarbe (dunkel) */
+  margin: 0;
+  padding: 0;
+  background-image: url('image/hintergrundbild-qhd.png'); /* Pfad prüfen! */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
 
-  #intro {
+header {
+  background-color: rgba(91, 204, 246, 0.7); /* Transparenz angepasst */
+  color: var(--light-text-contrast); /* Weiß für Lesbarkeit */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: sticky; */ /* Optional */
+  /* top: 0; */
+  /* width: 100%; */
+  /* z-index: 10; */
+}
+
+/* --- Navigation Styling --- */
+nav ul {
+  list-style: none; /* Entfernt Aufzählungspunkte */
+  padding-left: 0; /* Entfernt Standard-Einzug */
+  margin: 0; /* Entfernt Standard-Margin */
+  display: flex; /* Ordnet Listenelemente nebeneinander an */
+  gap: 1.5rem; /* Abstand zwischen den Links */
+}
+
+nav a {
+  color: var(--light-text-contrast); /* Gleiche Farbe wie Header-Text */
+  text-decoration: none; /* Entfernt Unterstreichung */
+  font-weight: bold;
+  padding: 0.5rem 0; /* Etwas Klickfläche oben/unten */
+}
+
+nav a i {
+  margin-right: 0.5em; /* Abstand Icon zu Text, skaliert mit Schrift */
+  font-size: 1em; /* Icon-Größe = Textgröße (anpassen bei Bedarf) */
+  /* vertical-align: middle; */ /* Meist nicht nötig bei Flexbox im Header */
+}
+
+nav a:hover {
+  color: var(--primary-yellow); /* Text UND Icon werden gelb */
+  /* --- Optional: Transition für weichen Übergang --- */
+  /* transition: color 0.3s ease; */
+}
+
+
+/* --- Intro Section --- */
+#intro {
+  padding: 40px 20px;
+  margin: 30px auto;
+  max-width: 800px;
+  background-color: var(--light-overlay-bg); /* Heller halbtransparenter Hintergrund */
+  border-radius: 8px;
+  /* Textschatten evtl. anpassen/entfernen, wenn Text dunkel genug ist */
+  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); */
+}
+
+#intro h2 { /* KORREKTUR: Selektor */
+  text-align: center;
+  margin-bottom: 25px;
+  /* KORREKTUR: Dunkle Farbe für Kontrast auf hellem Overlay */
+  color: var(--dark-text-contrast);
+}
+
+#intro p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  /* KORREKTUR: Dunkle Farbe für Kontrast auf hellem Overlay */
+  color: var(--dark-text-contrast);
+}
+
+/* --- Styling für andere Sektionen (Platzhalter) --- */
+#skills, #projects, #contact-form {
     padding: 40px 20px;
     margin: 30px auto;
     max-width: 800px;
-    background-color: #e4e2e270;
+    background-color: var(--light-overlay-bg); /* Gleicher Stil wie Intro? */
     border-radius: 8px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    
-  }
+    color: var(--dark-text-contrast); /* Standardtextfarbe für diese Sektionen */
+}
 
-  #intro h2 {
+#skills h2, #projects h2, #contact-form h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: var(--primary-blue);
+    color: var(--dark-text-contrast); /* Oder primary-blue? Kontrast prüfen! */
+}
 
-  }
+/* --- Footer Styling --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.7); /* Dunkler halbtransparenter Hintergrund */
+    color: #ccc; /* Helles Grau für Text */
+}
+footer a {
+    color: var(--primary-yellow); /* Gelb für Links im Footer */
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
 
-  #intro p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-
-  nav a i {
-    margin-right: 0.5rem;
-    font-size: 1em;
-  }
-
-  nav a:hover {
-    color: var(--primary-yellow);
-  }
