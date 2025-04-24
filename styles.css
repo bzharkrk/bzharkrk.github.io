@@ -99,7 +99,7 @@ nav a:hover {
 /* --- Skills Slideshow Section --- */
 #skills {
   padding: 40px 0; /* Kein seitliches Padding für Kante-zu-Kante-Scroll */
-  margin: 30px auto; /* Zentriert die Sektion selbst */
+  margin: 250px auto; /* Zentriert die Sektion selbst */
   max-width: 800px; /* Breite der Sektion, in der gescrollt wird */
   background-color: var(--light-overlay-bg); /* Heller Overlay-Hintergrund */
   border-radius: 8px;
