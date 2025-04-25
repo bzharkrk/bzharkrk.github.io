@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const empfaengerNameInput = document.getElementById('empfaengerNameInput'); 
     const sendeButton = document.getElementById('sendeButton');
     const statusMeldung = document.getElementById('statusMeldung');
-
+    const privacyCheckbox = document.getElementById('privacyCheckbox');
   
     const azureFunctionUrl = 'https://kheder-contact-func-dev.azurewebsites.net/api/ContactFormFunction';
 
@@ -18,9 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
         kontaktFormular.addEventListener('submit', async (event) => {
             event.preventDefault(); 
 
-            sendeButton.disabled = true;
+            if(privacyCheckbox && !privacyCheckbox.checked) {
+                statusMeldung.textContent = 'Bitte akzeptiere die Datenschutzbestimmungen.';
+                statusMeldung.style.color = 'red'; 
+                sendeButton.disabled = false;
+                return;
+            }
+
+            statusMeldung.textContent = '';
+            statusMeldung.style.color = '';
+            
+            sendeButton.dsiabled = true;
             statusMeldung.textContent = 'Nachricht wird gesendet...';
-            statusMeldung.style.color = '#030e12'; 
+
 
           
             const formData = {
