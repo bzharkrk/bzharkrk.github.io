@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/f61c5c8843.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <header>
     <h1>Kontakt</h1>
@@ -40,15 +42,29 @@
         </div>
 
         <input type="hidden" id="empfaengerNameInput" name="recipientsName" value="Alan">
+        </div>
+        <div class="privacy-consent">
+          <input type="checkbox" id="privacyCheckbox" name="privacy" value="accepted" required>
+          <label for="privacyCheckbox">
+            Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>
+            gelesen und akzeptiere sie.
+          </label>
+        </div>
+
         <button type="submit" id="sendeButton">Nachricht senden</button>
         <div id="statusMeldung" style="margin-top: 10px;"></div>
+      </form>
+
       </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; <strong>2025 Alan Kerkuki</strong></p> </footer>
+    <p>&copy; <strong>2025 Alan Kerkuki</strong></p>
+    <a href="datenschutz.html">Datenschutz</a> </p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
