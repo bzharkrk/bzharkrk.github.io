@@ -2,10 +2,10 @@
   --primary-yellow: #fcde67;
   --primary-blue: #5bccf6;
   --text-color: #030e12;
-  --background-color: #f0ecec; /* Wird aktuell vom Body-BG-Bild überdeckt */
   --light-overlay-bg: rgba(228, 226, 226, 0.75); /* Etwas weniger transparent als #e4e2e270 */
   --dark-text-contrast: #030e12;
   --light-text-contrast: white;
+  /* Deine angepasste Variable für die Slideshow-Breite */
   --logo-set-width: 420px;
 }
 
@@ -25,17 +25,16 @@ body {
 }
 
 header {
-  background-color: rgba(91, 204, 246, 0.75); /* Leicht angepasst */
+  background-color: rgba(91, 204, 246, 0.75);
   color: var(--light-text-contrast);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: sticky; top: 0; width: 100%; z-index: 10; */ /* Bei Bedarf */
 }
 
 main {
-  flex-grow:  1; /* Nimmt den verfügbaren Platz ein */
+  flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
 }
 
 /* --- Navigation Styling --- */
@@ -52,15 +51,14 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 0;
-  display: inline-flex; /* Hilft bei Ausrichtung Icon/Text */
-  align-items: center; /* Vertikal zentrieren */
-  transition: color 0.3s ease; /* Dynamik: Weicher Farbwechsel */
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
 }
 
 nav a i {
   margin-right: 0.5em;
-  font-size: 1em; /* Größe = Textgröße (anpassen bei Bedarf) */
-  /* vertical-align wird durch align-items im Parent (nav a) gesteuert */
+  font-size: 1em;
 }
 
 nav a:hover {
@@ -68,96 +66,79 @@ nav a:hover {
 }
 
 /* --- Allgemeine Sektions-Styles --- */
-#intro, #skills, #projects, #contact-form-section {
-  padding: 40px 20px; /* Standard-Innenabstand (bei #skills überschrieben) */
+/* NEU: #privacy-policy zur Liste hinzugefügt */
+#intro, #skills, #projects, #contact-form-section, #privacy-policy {
+  padding: 40px 20px; /* Standard-Innenabstand (wird bei #skills überschrieben) */
   margin: 30px auto; /* Standard-Außenabstand & Zentrierung */
   max-width: 800px; /* Standard-Breitenbegrenzung */
-  background-color: var(--light-overlay-bg); /* Heller Overlay für Lesbarkeit */
+  background-color: var(--light-overlay-bg); /* Heller Overlay */
   border-radius: 8px;
-  color: var(--dark-text-contrast); /* Standard-Textfarbe in diesen Boxen */
+  color: var(--dark-text-contrast); /* Standard-Textfarbe in Boxen */
 }
 
-/* --- Intro Section Specifc --- */
-#intro h2 {
+/* --- Allgemeine Styles für Überschriften (h2) in Sektionen --- */
+/* NEU: H2-Regeln zusammengefasst und #privacy-policy h2 hinzugefügt */
+#intro h2, #skills h2, #projects h2, #contact-form-section h2, #privacy-policy h2 {
   text-align: center;
   margin-bottom: 25px;
-  color: var(--dark-text-contrast); /* Sicherstellen, dass Kontrast passt */
+  color: var(--dark-text-contrast); /* Dunkle Farbe für Kontrast auf hellem Overlay */
 }
 
-#intro p {
+/* --- Allgemeine Styles für Absätze (p) in Sektionen --- */
+/* NEU: P-Regeln zusammengefasst und #privacy-policy p hinzugefügt */
+#intro p, #skills p, #projects p, #contact-form-section p, #privacy-policy p {
   line-height: 1.6;
   margin-bottom: 15px;
-  color: var(--dark-text-contrast); /* Sicherstellen, dass Kontrast passt */
+  color: var(--dark-text-contrast); /* Stellt dunkle Textfarbe sicher */
 }
-/* Span für Namen (optional) */
+
+/* Spezifische Styles bleiben erhalten */
 #intro span {
   font-weight: bold;
-  /* color: var(--primary-blue); */ /* Optional hervorheben */
 }
 
 
 /* --- Skills Slideshow Section --- */
 #skills {
-  padding: 40px 0; /* Kein seitliches Padding für Kante-zu-Kante-Scroll */
-  margin: 250px auto; /* Zentriert die Sektion selbst */
-  max-width: 800px; /* Breite der Sektion, in der gescrollt wird */
-  background-color: var(--light-overlay-bg); /* Heller Overlay-Hintergrund */
-  border-radius: 8px;
-  color: var(--dark-text-contrast);
-  overflow: hidden; /* WICHTIG: Schneidet den Track ab */
+  padding: 40px 0; /* Kein seitliches Padding */
+  /* margin: 250px auto; */ /* Zurückgesetzt auf Standard, 250px war sehr viel */
+  margin-top: 30px; /* Standardabstand */
+  margin-bottom: 30px; /* Standardabstand */
+  /* margin-left/right: auto wird von der allgemeinen Regel geerbt */
+  overflow: hidden; /* WICHTIG */
+  /* Andere Styles werden von oben geerbt (#intro, #skills...) */
 }
 
-#skills h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: var(--dark-text-contrast);
-}
-
-/* Das Laufband - Ansatz mit white-space */
 .skills-slideshow-track {
-  white-space: nowrap; /* Hält Logos in einer Zeile */
-  /* Passe die Dauer (18s) an, wenn die Geschwindigkeit nicht passt */
-  animation: scroll_animation_nowrap 10s linear infinite;
-  width: calc(var(--logo-set-width) * 2); /* Doppelte Breite für Endlosschleife */
+  white-space: nowrap;
+  --logo-set-width: 420px; /* Dein Wert */
+  animation: scroll_animation_nowrap 10s linear infinite; /* Deine Dauer */
 }
 
-/* Styling der Logos */
 .skills-slideshow-track img {
-  display: inline-block; /* Wichtig für nowrap */
-  height: 50px; /* Deine bestätigte Höhe */
-  width: 50px;  /* Deine bestätigte Breite */
-  margin: 0 25px; /* Dein bestätigter Margin */
-  vertical-align: middle; /* Vertikal ausrichten */
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin: 0 25px;
+  vertical-align: middle;
 }
 
-/* Keyframe-Animation (nutzt die Variable) */
 @keyframes scroll_animation_nowrap {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Verschiebt um exakt die Breite EINER Sequenz */
-    transform: translateX(calc(-1 * var(--logo-set-width))); /* Sollte -400px sein */
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--logo-set-width))); }
 }
 
-/* Optional: Pause bei Hover */
 .skills-slideshow-track:hover {
   animation-play-state: paused;
 }
-
 /* --- Ende Skills Slideshow Section --- */
 
+
 /* --- Projects Section --- */
-#projects h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: var(--dark-text-contrast);
-}
+/* H2 wird von oben gestyled */
 .slideshow {
-  /* Basis-Styling für den Platzhalter */
   min-height: 150px;
-  background-color: rgba(0,0,0,0.1); /* Leichter Platzhalter-Hintergrund */
+  background-color: rgba(0,0,0,0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,74 +146,107 @@ nav a:hover {
 }
 
 /* --- Contact Form Section --- */
-#contact-form-section h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: var(--dark-text-contrast);
+/* H2 wird von oben gestyled */
+#contactForm {
+    margin-top: 25px;
 }
-/* (Weitere Styles für Formular folgen) */
 #contactForm label {
-  display: block; /* Labels über den Feldern */
-  margin-bottom: 5px;
+  display: block;
+  margin-bottom: 8px; /* Mehr Platz */
   font-weight: bold;
 }
 #contactForm input[type="text"],
 #contactForm input[type="email"],
 #contactForm textarea {
-  width: 100%; /* Volle Breite innerhalb des Containers */
-  padding: 10px;
-  margin-bottom: 15px;
+  width: 100%;
+  padding: 12px; /* Mehr Padding */
+  margin-bottom: 20px; /* Mehr Abstand */
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box; /* Padding etc. in Breite einrechnen */
-  background-color: #fff; /* Heller Hintergrund für Felder */
+  border-radius: 5px; /* Angepasst */
+  box-sizing: border-box;
+  background-color: #fff;
   color: var(--text-color);
+  font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+#contactForm input[type="text"]:focus,
+#contactForm input[type="email"]:focus,
+#contactForm textarea:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 5px rgba(91, 204, 246, 0.5);
 }
 #contactForm textarea {
-  resize: vertical; /* Nur vertikales Ändern der Größe erlauben */
+  resize: vertical;
+  min-height: 120px;
 }
+/* Checkbox Styling (Basis) */
+.privacy-consent {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+.privacy-consent input[type="checkbox"] {
+    margin-right: 8px;
+    vertical-align: middle; /* Bessere Ausrichtung */
+}
+.privacy-consent label {
+    display: inline; /* Label neben Checkbox */
+    font-weight: normal;
+}
+.privacy-consent label a {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+.privacy-consent label a:hover {
+    color: var(--primary-yellow);
+}
+
 #contactForm button {
   background-color: var(--primary-blue);
   color: white;
-  padding: 12px 20px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 1.1em;
   font-weight: bold;
-  transition: background-color 0.3s ease; /* Dynamik: Hover-Effekt */
+  transition: background-color 0.3s ease, transform 0.1s ease;
 }
 #contactForm button:hover {
-  background-color: #48addf; /* Etwas dunkleres Blau bei Hover */
+  background-color: #48addf;
+}
+#contactForm button:active {
+    transform: scale(0.98);
 }
 #contactForm button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 #statusMeldung {
-  margin-top: 15px;
+  margin-top: 20px;
   font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
-
 
 /* --- Footer Styling --- */
 footer {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
-  background-color: rgba(0, 0, 0, 0.75); /* Etwas dunkler */
+  background-color: rgba(0, 0, 0, 0.75);
   color: #ccc;
 }
 footer a {
   color: var(--primary-yellow);
   text-decoration: none;
-  transition: color 0.3s ease; /* Dynamik: Hover-Effekt */
+  transition: color 0.3s ease;
 }
 footer a:hover {
   color: white;
-  /* text-decoration: underline; */ /* Optional */
 }
-footer i { /* Icon im Footer Link */
+footer i {
   margin-right: 0.3em;
   font-size: 1em;
 }
