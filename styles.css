@@ -25,7 +25,9 @@ body {
 }
 
 header {
-  background-color: rgba(91, 204, 246, 0.75);
+  background-image: linear-gradient(to right,
+  rgba(91, 204, 246, 0.75),  /* Startfarbe: Hellblau (wie vorher), halbtransparent */
+  rgba(2, 90, 138, 0.75) );  /* Endfarbe: Dunkleres Blau, gleiche Transparenz */ 
   color: var(--light-text-contrast);
   padding: 1rem 2rem;
   display: flex;
@@ -63,6 +65,7 @@ nav a i {
 
 nav a:hover {
   color: var(--primary-yellow);
+  transform: translateY(-2px); /* Leichte Animation beim Hover */
 }
 
 /* --- Allgemeine Sektions-Styles --- */
@@ -235,8 +238,9 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)); /* Dunklerer Overlay-Hintergrund */
   color: #ccc;
+ 
 }
 footer a {
   color: var(--primary-yellow);
@@ -245,6 +249,7 @@ footer a {
 }
 footer a:hover {
   color: white;
+  
 }
 footer i {
   margin-right: 0.3em;
